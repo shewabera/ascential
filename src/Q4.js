@@ -13,8 +13,11 @@ class Q4 extends React.Component {
 
 componentDidMount () {
   Util.axiosGet(Util.endPoints.error)
-  .then(res=>{})
-  .catch(err => {this.setState({error : err.message})} )
+  .then(res=>{console.log(res.data)})
+  .catch(err => {
+    console.log(err)
+    this.setState({error : err.response.data.error})
+    } )
 }
 
   render() {
